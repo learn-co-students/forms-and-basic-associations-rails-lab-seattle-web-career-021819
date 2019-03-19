@@ -3,9 +3,24 @@
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+
+  <br />
+  <%= f.label :artist_name%>
+  <%= f.text_field :artist_name%>
+  <br />
+
+  <!-- genre.id what is stored in params, genre.all represents the collection of optiosn to display, id reperents the value that will be stored in params, name represents what will be shown to users in the form -->
+  <label>Select your genre from list below:</label>
+  <%= f.collection_select :genre_id, Genre.all, :name, :name%>
+  <br />
+
+  <label>Add notes to remember the song(up to 2): </label>
+  <input type="text" name="song[note_contents][]" id="song_notes_1">
+  <input type="text" name="song[note_contents][]" id="song_notes_2">
+
+  <input type="text" name="" value="">
+
   <br />
 
   <%= f.submit %>
 <% end %>
-
-
